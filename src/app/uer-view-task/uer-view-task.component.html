@@ -1,0 +1,58 @@
+<div class="wrapper">
+  <UserNavBar></UserNavBar>
+  <div class="main-panel">
+    <nav class="navbar navbar-expand-lg " color-on-scroll="500">
+      <div class=" container-fluid  ">
+        <a class="navbar-brand" href="#pablo"> Team Member Panel </a>
+        <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-bar burger-lines"></span>
+          <span class="navbar-toggler-bar burger-lines"></span>
+          <span class="navbar-toggler-bar burger-lines"></span>
+        </button>
+
+      </div>
+    </nav>
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card strpied-tabled-with-hover">
+              <div class="card-header">
+                <h4 class="card-title">All Task List</h4>
+              </div>
+              <div class="card-body table-full-width table-responsive">
+                <table class="table table-hover table-striped">
+                  <thead>
+                    <tr>
+                      <th>Task Title</th>
+                      <th>Assigning Date</th>
+                      <th>Competion Date</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let k of taskObj">
+
+                      <td>{{k.TaskName}}</td>
+                      <td>{{k.AssignDate}}</td>
+                      <td>{{k.CompleteDate}}</td>
+
+                      <td>
+                        <input type="submit" class="btn btn-success btn-fill" value="View Details" (click)="ViewTaskDetails(k)" /> &nbsp;
+                      </td>
+
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <Footer></Footer>
+  </div>
+</div>

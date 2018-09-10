@@ -1,0 +1,85 @@
+<div class="wrapper">
+    <MainNav></MainNav>
+    <div class="main-panel">
+        <nav class="navbar navbar-expand-lg " color-on-scroll="500">
+            <div class=" container-fluid  ">
+                <a class="navbar-brand" href="#pablo"> Admin Panel </a>
+                <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-bar burger-lines"></span>
+                    <span class="navbar-toggler-bar burger-lines"></span>
+                    <span class="navbar-toggler-bar burger-lines"></span>
+                </button>
+
+            </div>
+        </nav>
+        <div class="content">
+
+            <div class="col-md-12">
+                <div class="card border-info">
+                    <div class="card-header">
+                        <h4 class="card-title">Add New Task Details</h4>
+                    </div>
+                    <div class="alert alert-success alert-with-icon" *ngIf="isAdded" data-notify="container">
+                            <button type="button" aria-hidden="true" class="close" data-dismiss="alert">
+                              <i class="nc-icon nc-simple-remove"></i>
+                            </button>
+                            <span data-notify="icon" class="nc-icon nc-bell-55"></span>
+                            <span data-notify="message">{{msg}}</span>
+                          </div>
+                    <div class="card-body">
+
+                        <form id="feed" name="feed" #TaskData="ngForm" (ngSubmit)="AddNewTask(TaskData.value);TaskData.resetForm()">
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Task Name</label>
+                                        <input type="text" name="TaskName" id="TaskName" class="form-control" ngModel />
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Description</label>
+                                        <input type="text" name="Desc" id="Desc" class="form-control" ngModel/>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Task Completion Date</label>
+                                        <input type="date" name="CompleteDate" id="CompleteDate" class="form-control" ngModel/>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Assign To (Select Member Name)</label>
+                                        <select  class="form-control" name="MemberEmail" id="MemberEmail" [(ngModel)]="defaultOption" >
+                                            <option [value]=0 selected disabled>---Select Team Member Name---</option>
+                                            <option *ngFor="let k of objemp" value="{{k.Email}}">{{k.Name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                            <button type="submit" class="btn btn-info btn-fill pull-left">Asign Task</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <Footer></Footer>
+    </div>
+</div>
